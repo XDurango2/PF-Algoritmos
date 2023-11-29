@@ -90,6 +90,57 @@ public class arbol {
     public void postorden() {
         this.postorden(this.raiz);
     }
+    // Método para eliminar un dato en el árbol
+public void eliminar(int dato) {
+    // Se llama al método privado que elimina el dato de forma recursiva
+    raiz = eliminar(raiz, dato);
+}
+
+// Método privado que elimina un dato en el árbol de forma recursiva
+private nodo eliminar(nodo nodo, int dato) {
+    // Si el nodo es nulo, se retorna nulo
+    if (nodo == null) {
+        return null;
+    }
+    // Si el dato es menor que el dato del nodo actual, se elimina en el subárbol izquierdo
+    if (dato < (int)nodo.getDato()) {
+        nodo.setLeft(eliminar(nodo.getLeft(), dato));
+    } else if (dato > (int)nodo.getDato()) {
+        // Si el dato es mayor que el dato del nodo actual, se elimina en el subárbol derecho
+        nodo.setRight(eliminar(nodo.getRight(), dato));
+    } else {
+        // Si el dato es igual que el dato del nodo actual, se tienen tres casos
+        if (nodo.getLeft()== null && nodo.getRight()== null) {
+            // Si el nodo no tiene hijos, se elimina el nodo y se retorna nulo
+            nodo = null;
+        } else if (nodo.getLeft()!= null && nodo.getRight()== null) {
+            // Si el nodo tiene un solo hijo izquierdo, se reemplaza el nodo por su hijo y se retorna el hijo
+            nodo = nodo.getLeft();
+        } else if (nodo.getLeft() == null && nodo.getRight() != null) {
+            // Si el nodo tiene un solo hijo derecho, se reemplaza el nodo por su hijo y se retorna el hijo
+            nodo = nodo.getRight();
+        } else {
+            // Si el nodo tiene dos hijos, se busca el sucesor del nodo en el subárbol derecho
+            nodo sucesor = buscarSucesor(nodo.getRight());
+            // Se copia el dato del sucesor al nodo
+            nodo.setDato(sucesor.getDato());
+            // Se elimina el sucesor en el subárbol derecho
+            nodo.setRight(eliminar(nodo.getRight(), (int)sucesor.getDato()));
+        }
+    }
+    // Se retorna el nodo modificado
+    return nodo;
+}
+
+// Método para buscar el sucesor de un nodo en el árbol
+    private nodo buscarSucesor(nodo nodo) {
+        // El sucesor es el nodo más a la izquierda del subárbol derecho
+        while (nodo.getLeft()!= null) {
+            nodo = nodo.getLeft();
+        }
+        // Se retorna el sucesor
+        return nodo;
+    }
 
 
 }

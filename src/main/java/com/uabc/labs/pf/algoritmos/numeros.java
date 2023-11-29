@@ -12,6 +12,12 @@ import java.util.Random;
  * @author us
  */
 public class numeros {
+    private arbol arbol1;
+
+    public numeros() {
+        this.arbol1 = new arbol();
+    }
+    
     public ArrayList generaNumeros(int k, int n){
         ArrayList<Integer> array = new ArrayList<>();
         Random rd = new Random();
@@ -20,10 +26,17 @@ public class numeros {
         }
         return array;
     }
-    public void insertaNumeros(ArrayList numeros){
+    public void insertaNumeros(ArrayList<Integer> numeros){
         for(int k =0;k<numeros.size();k++){
-            
+            arbol1.insertar(numeros.get(k));
             
         }
+    }
+    public void insertaNumero(int dato){
+        arbol1.insertar(dato);
+    }
+    
+    public boolean eliminar(int numero){
+        
     }
 }
