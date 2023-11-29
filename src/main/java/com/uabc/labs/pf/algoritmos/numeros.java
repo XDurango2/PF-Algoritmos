@@ -22,7 +22,7 @@ public class numeros {
     }
     public void insertaNumeros(ArrayList numeros){
         for(int k =0;k<numeros.size();k++){
-            hhh
+            
             
         }
     }
