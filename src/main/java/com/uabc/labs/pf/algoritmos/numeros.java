@@ -36,7 +36,9 @@ public class numeros {
         arbol1.insertar(dato);
     }
     
-    public boolean eliminar(int numero){
-        
+    public void eliminar(int numero){
+        arbol1.eliminar(numero);
     }
+    
+    
 }

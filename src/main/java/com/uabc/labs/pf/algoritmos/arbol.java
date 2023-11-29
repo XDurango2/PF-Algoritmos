@@ -14,6 +14,7 @@ public class arbol {
     public arbol() {
         
     }
+    
     public void insertar(int dato){
         if(raiz==null){
             raiz=new nodo(dato);
@@ -21,6 +22,7 @@ public class arbol {
             insertar(raiz,dato);
         }
     }
+    
     private void insertar(nodo padre,int dato){
         if(dato>(int)padre.getDato()){
             if(padre.getRight()==null){
@@ -91,13 +93,13 @@ public class arbol {
         this.postorden(this.raiz);
     }
     // Método para eliminar un dato en el árbol
-public void eliminar(int dato) {
+    public void eliminar(int dato) {
     // Se llama al método privado que elimina el dato de forma recursiva
     raiz = eliminar(raiz, dato);
 }
 
-// Método privado que elimina un dato en el árbol de forma recursiva
-private nodo eliminar(nodo nodo, int dato) {
+    // Método privado que elimina un dato en el árbol de forma recursiva
+    private nodo eliminar(nodo nodo, int dato) {
     // Si el nodo es nulo, se retorna nulo
     if (nodo == null) {
         return null;
@@ -132,7 +134,7 @@ private nodo eliminar(nodo nodo, int dato) {
     return nodo;
 }
 
-// Método para buscar el sucesor de un nodo en el árbol
+    // Método para buscar el sucesor de un nodo en el árbol
     private nodo buscarSucesor(nodo nodo) {
         // El sucesor es el nodo más a la izquierda del subárbol derecho
         while (nodo.getLeft()!= null) {
@@ -142,5 +144,8 @@ private nodo eliminar(nodo nodo, int dato) {
         return nodo;
     }
 
-
+    public void recorridoNiveles(){
+        nodo n = raiz;
+        
+    }
 }
