@@ -22,7 +22,7 @@ public class numeros {
         ArrayList<Integer> array = new ArrayList<>();
         Random rd = new Random();
         for(int m=0;m<n;m++){
-            array.add(rd.nextInt(k));
+            array.add(rd.nextInt(k+1));//rango de 
         }
         return array;
     }
@@ -40,5 +40,18 @@ public class numeros {
         arbol1.eliminar(numero);
     }
     
+    public void mostrarPreorden()
+    {
+        System.out.println(arbol1.preorden());
+    }
     
+    public void mostrarInorden()
+    {
+        System.out.println(arbol1.inorden());
+    }
+    
+    public void mostrarPostorden()
+    {
+        System.out.println(arbol1.postorden());
+    }
 }

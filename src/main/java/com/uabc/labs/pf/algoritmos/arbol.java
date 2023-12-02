@@ -5,24 +5,36 @@
 package com.uabc.labs.pf.algoritmos;
 
 /**
- *
+ *clase que modela un arbol binario completo.
  * @author us
  */
 public class arbol {
     private nodo raiz;
-
+    //constructor
     public arbol() {
         
     }
     
+    /**
+     * metodo para insertar un dato al arbol
+     * @param dato 
+     */
     public void insertar(int dato){
-        if(raiz==null){
+        if(exists(dato)==false)//no puede haber  datos repetidos
+        {
+            if(raiz==null){
             raiz=new nodo(dato);
-        }else{
+            }else{
             insertar(raiz,dato);
+            }
         }
-    }
-    
+    }    
+    /**
+     * metodo para insertar un dato como hijo de un nodo padre,
+     * busca un lugar para el dato, usando recursividad.
+     * @param padre
+     * @param dato 
+     */
     private void insertar(nodo padre,int dato){
         if(dato>(int)padre.getDato()){
             if(padre.getRight()==null){
@@ -39,59 +51,77 @@ public class arbol {
         }
     }
     
+    /**
+     * metodo para encontrar un dato en el arbol
+     * @param find
+     * @return 
+     */
     public boolean exists(int find){
         return exists(raiz,find);
     }
     
-    
+    /**
+     * metodo para determinar si el dato que se busca es el nodo raiz, 
+     * sino los compara con sus hijos considerando su valor.
+     * @param n
+     * @param find
+     * @return 
+     */
     private boolean exists(nodo n,int find){
         if(n==null){
             return false;
         }
         if((int)n.getDato()==find){
             return true;
-        }else if(find< (int)n.getDato()){
+        }else if(find<(int)n.getDato()){
             return exists(n.getLeft(),find);
         }else{
             return exists(n.getRight(),find);
         }
     }
     
-    private void preorden(nodo n) {
+    private String RecorrerPreorden(nodo n) {
+        String valores="";
         if (n != null) {
-            n.imprimirDato();
-            preorden(n.getLeft());
-            preorden(n.getRight());
+            valores+=n.getDato()+" ";
+            valores+=RecorrerPreorden(n.getLeft());
+            valores+=RecorrerPreorden(n.getRight());
         }
+        return valores;
     }
 
-    private void inorden(nodo n) {
+    private String RecorrerInorden(nodo n) {
+        String valores="";
         if (n != null) {
-            inorden(n.getLeft());
-            n.imprimirDato();
-            inorden(n.getRight());
+            valores+=RecorrerInorden(n.getLeft());
+            valores+=n.getDato()+" ";
+            valores+=RecorrerInorden(n.getRight());
         }
+        return valores;
     }
 
-    private void postorden(nodo n) {
+    private String postorden(nodo n) {
+        String valores="";
         if (n != null) {
-            postorden(n.getLeft());
-            postorden(n.getRight());
-            n.imprimirDato();
+            valores+=postorden(n.getLeft());
+            valores+=postorden(n.getRight());
+            valores+=n.getDato()+" ";
         }
+        return valores;
     }
 
-    public void preorden() {
-        this.preorden(this.raiz);
+    public String preorden() {
+        return this.RecorrerPreorden(this.raiz);
     }
 
-    public void inorden() {
-        this.inorden(this.raiz);
+    public String inorden() {
+        return this.RecorrerInorden(this.raiz);
     }
 
-    public void postorden() {
-        this.postorden(this.raiz);
+    public String postorden() {
+        return this.postorden(this.raiz);
     }
+    
     // Método para eliminar un dato en el árbol
     public void eliminar(int dato) {
     // Se llama al método privado que elimina el dato de forma recursiva
@@ -148,4 +178,5 @@ public class arbol {
         nodo n = raiz;
         
     }
+    
 }
