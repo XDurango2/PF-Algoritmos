@@ -100,6 +100,66 @@ public class arbol {
         return valores;
     }
 
+    
+    private void mostrarPorNivle(int nivel)
+    {
+        recorrer(1, raiz, nivel);
+    
+    }
+    private void recorrer(int nivelActual, nodo n,int nivelDeseado)
+    {
+        if(n!=null)
+        {
+            recorrerIzquierda(nivelActual+1, n, nivelDeseado);
+            recorrerDerecha(nivelActual+1, n, nivelDeseado);
+        
+        
+        }
+    }
+    private void recorrerDerecha(int nivelActual, nodo n,int nivelDeseado)
+    {
+        if(n!=null)
+        {
+        n = n.getRight();
+        if(nivelActual == (nivelDeseado-1))
+        {
+            if(n.getLeft()!=null){
+            System.out.println(""+n.getLeft());
+            }
+        }
+            if(n.getRight()!=null){
+            System.out.println(""+n.getRight());
+            }
+        }
+        if(nivelActual<(nivelDeseado-1))
+        {
+            
+            recorrer(nivelActual+1, n, nivelDeseado);
+        }
+    }
+     private void recorrerIzquierda(int nivelActual, nodo n,int nivelDeseado)
+    {
+        if(n!=null)
+        {
+        n = n.getLeft();
+        if(nivelActual == (nivelDeseado-1))
+        {
+            if(n.getLeft()!=null){
+            System.out.println(""+n.getLeft());
+            }
+        }
+            if(n.getRight()!=null){
+            System.out.println(""+n.getRight());
+            }
+        }
+        if(nivelActual<nivelDeseado)
+        {
+            
+            recorrer(nivelActual+1, n, nivelDeseado);
+        }
+    }
+        
+        
     private String postorden(nodo n) {
         String valores="";
         if (n != null) {
