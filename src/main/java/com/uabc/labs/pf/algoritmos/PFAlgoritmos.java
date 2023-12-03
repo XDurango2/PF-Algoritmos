@@ -45,7 +45,7 @@ public class PFAlgoritmos {
         System.out.println("Nivel 1 "+a.mostrarPorNivel(1));
         System.out.println("Nivel 2 "+a.mostrarPorNivel(2));
         System.out.println("Nivel 3 "+a.mostrarPorNivel(3));
-        System.out.println("Recorrido por nivel "+a.recorridoPorNiveles());
+        System.out.println("Recorrido por nivel "+a.recorridoPorNivel());
 
         System.out.println("ingrese el numero a buscar para obtener su codigo:");
         int numero=sc.nextInt();

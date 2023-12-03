@@ -104,10 +104,10 @@ public class arbol {
         return valores;
     }
 
-    public String recorridoPorNiveles()
+    
 
     
-    private void mostrarPorNivel(int nivel)
+    public String recorridoPorNivel()
 
     {
          StringBuilder valores = new StringBuilder(recorrido(raiz,1));
@@ -250,6 +250,7 @@ public class arbol {
         return nodo;
     }
 
+
     public String obtenerCodigo(int numero){
         nodo n = raiz;
         return findCodigo(n,numero);
@@ -273,5 +274,6 @@ public class arbol {
         }
     }
     
+
     
 }
