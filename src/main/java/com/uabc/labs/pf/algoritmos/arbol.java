@@ -246,9 +246,6 @@ public class arbol {
         return nodo;
     }
 
-    public void recorridoNiveles(){
-        nodo n = raiz;
-        
-    }
+
     
 }
