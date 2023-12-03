@@ -118,13 +118,17 @@ public class arbol {
     }
     private String recorrido(nodo n,int nivel)
     {
+        //Se recorre por nivel
         String valoresPorNivel = recorrerParaMostrarPorNivel(1, n, nivel);
         String valores = "";
         if(valoresPorNivel.length()>1){
+            //Se guarda en un string por niveles
         valores +=valoresPorNivel;
             valores +=recorrido(n, nivel+1);
         }
         return valores;
+        
+        //Este metodo se recorre la misma cantidad de veces que niveles tenga, es decir si tiene 3 niveles entonces se recorre 3 veces
     }
     
     //Este metodo muestra los datos de los nodos del nivel deseadp
