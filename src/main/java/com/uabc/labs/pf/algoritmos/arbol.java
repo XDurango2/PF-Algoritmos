@@ -105,6 +105,10 @@ public class arbol {
     }
 
     public String recorridoPorNiveles()
+
+    
+    private void mostrarPorNivel(int nivel)
+
     {
          StringBuilder valores = new StringBuilder(recorrido(raiz,1));
          if(valores.length()>1){
@@ -246,9 +250,28 @@ public class arbol {
         return nodo;
     }
 
-    public void recorridoNiveles(){
+    public String obtenerCodigo(int numero){
         nodo n = raiz;
+        return findCodigo(n,numero);
         
     }
+    private String findCodigo(nodo n,int find){
+        String valor="";
+        if(n==null){
+            return "no encontrado";
+        }
+        if((int)n.getDato()==find){
+            return valor;
+        }else if(find<(int)n.getDato()){
+            valor+="0,";
+            valor+=findCodigo(n.getLeft(),find);
+            return valor;
+        }else{
+            valor+="1,";
+            valor+=findCodigo(n.getRight(),find);
+            return valor;
+        }
+    }
+    
     
 }

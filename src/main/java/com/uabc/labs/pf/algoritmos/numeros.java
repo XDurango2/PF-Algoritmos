@@ -54,4 +54,10 @@ public class numeros {
     {
         System.out.println(arbol1.postorden());
     }
+    public void obtenerCodigo(int numero){
+        System.out.println(arbol1.obtenerCodigo(numero));
+    }
+    public void mostrarNivel(int nivel){
+        //arbol1.mostrarPorNivel(nivel);
+    }
 }
