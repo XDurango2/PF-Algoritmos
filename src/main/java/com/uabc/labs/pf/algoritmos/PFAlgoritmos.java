@@ -53,7 +53,7 @@ public class PFAlgoritmos {
         num.obtenerCodigo(numero);
         System.out.println("ingrese el nivel a mostrar:");
         int nivel = sc.nextInt();
-        num.mostrarNivel(nivel);
+        System.out.println("nivel "+nivel+": "+num.mostrarNivel(nivel));
 
     }
 }

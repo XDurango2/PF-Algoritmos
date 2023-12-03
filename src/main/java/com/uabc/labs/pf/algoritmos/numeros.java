@@ -57,7 +57,7 @@ public class numeros {
     public void obtenerCodigo(int numero){
         System.out.println(arbol1.obtenerCodigo(numero));
     }
-    public void mostrarNivel(int nivel){
-        //arbol1.mostrarPorNivel(nivel);
+    public String mostrarNivel(int nivel){
+         return arbol1.mostrarPorNivel(nivel);
     }
 }
