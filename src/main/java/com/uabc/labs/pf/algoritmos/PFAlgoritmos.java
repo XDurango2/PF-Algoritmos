@@ -5,6 +5,7 @@
 package com.uabc.labs.pf.algoritmos;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * clase principal del proyecto, lo usaremos para hacer pruebas.
@@ -14,8 +15,8 @@ public class PFAlgoritmos {
 
     public static void main(String[] args) {
         numeros num = new numeros();
-        ArrayList valores = new ArrayList<>();
-        valores = num.generaNumeros(10, 5);
+        Scanner sc = new Scanner(System.in);
+        ArrayList valores = num.generaNumeros(10, 10);
         System.out.println("valores: "+valores);
         
         num.insertaNumeros(valores);
@@ -25,8 +26,11 @@ public class PFAlgoritmos {
         num.mostrarInorden();
         System.out.print("postorden: ");
         num.mostrarPostorden();
-        
+
         //-------------------Pruebas nivel-----------------
+      
+      
+      
         arbol a = new arbol();
         a.insertar(9);
         a.insertar(1);
@@ -41,6 +45,15 @@ public class PFAlgoritmos {
         System.out.println("Nivel 1 "+a.mostrarPorNivel(1));
         System.out.println("Nivel 2 "+a.mostrarPorNivel(2));
         System.out.println("Nivel 3 "+a.mostrarPorNivel(3));
-        System.out.println("Recorrido por nivel "+a.recorridoPorNiveles());
+        System.out.println("Recorrido por nivel "+a.recorridoPorNivel());
+
+        System.out.println("ingrese el numero a buscar para obtener su codigo:");
+        int numero=sc.nextInt();
+        System.out.println("codigo: ");
+        num.obtenerCodigo(numero);
+        System.out.println("ingrese el nivel a mostrar:");
+        int nivel = sc.nextInt();
+        num.mostrarNivel(nivel);
+
     }
 }
