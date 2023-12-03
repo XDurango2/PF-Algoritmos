@@ -101,7 +101,7 @@ public class arbol {
     }
 
     
-    private void mostrarPorNivle(int nivel)
+    private void mostrarPorNivel(int nivel)
     {
         recorrer(1, raiz, nivel);
     
@@ -234,7 +234,7 @@ public class arbol {
         return nodo;
     }
 
-    public void recorridoNiveles(){
+    public String obtenerCodigo(){
         nodo n = raiz;
         
     }
