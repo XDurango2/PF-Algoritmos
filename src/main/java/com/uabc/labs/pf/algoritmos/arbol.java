@@ -19,6 +19,10 @@ public class arbol {
      * metodo para insertar un dato al arbol
      * @param dato 
      */
+    public int regresarRaiz()
+    {
+        return (int) raiz.getDato();
+    }
     public void insertar(int dato){
         if(exists(dato)==false)//no puede haber  datos repetidos
         {
@@ -100,65 +104,69 @@ public class arbol {
         return valores;
     }
 
+    public String recorridoPorNiveles()
+    {
+         StringBuilder valores = new StringBuilder(recorrido(raiz,1));
+         if(valores.length()>1){
+            //En caso que sea de tamano mas 1 significa que al menos se imprimio un numero, entonces debe eliminar la coma al final
+        return valores.deleteCharAt(valores.length()-1).toString();
+        }
+        //Regresa si no hay nada , por lo que no tiene que eliminar la coma
+        return valores.toString();
+       
+        
+    }
+    private String recorrido(nodo n,int nivel)
+    {
+        String valoresPorNivel = recorrerParaMostrarPorNivel(1, n, nivel);
+        String valores = "";
+        if(valoresPorNivel.length()>1){
+        valores +=valoresPorNivel;
+            valores +=recorrido(n, nivel+1);
+        }
+        return valores;
+    }
     
-    private void mostrarPorNivle(int nivel)
+    //Este metodo muestra los datos de los nodos del nivel deseadp
+    public String mostrarPorNivel(int nivel)
     {
-        recorrer(1, raiz, nivel);
+        //Manada a llamar un metodo recursivo para recorrer el arbol
+        StringBuilder cadena=new StringBuilder(recorrerParaMostrarPorNivel(1, raiz, nivel));
+        //Su nivel inicia en 1, y su primer nodo es la raiz
+        //Se guarda en una tipo StringBuilder para eliminar la ultima coma
+        if(cadena.length()>1){
+            //En caso que sea de tamano mas 1 significa que al menos se imprimio un numero, entonces debe eliminar la coma al final
+        return cadena.deleteCharAt(cadena.length()-1).toString();
+        }
+        //Regresa si no hay nada , por lo que no tiene que eliminar la coma
+        return cadena.toString();
+        
     
     }
-    private void recorrer(int nivelActual, nodo n,int nivelDeseado)
+    private String recorrerParaMostrarPorNivel(int nivelActual, nodo n,int nivelDeseado)
     {
-        if(n!=null)
-        {
-            recorrerIzquierda(nivelActual+1, n, nivelDeseado);
-            recorrerDerecha(nivelActual+1, n, nivelDeseado);
-        
-        
+        String valores = "";
+        if(nivelActual == nivelDeseado){
+            //Imprime si el nivel en el que se encuentra el nodo esta en el nivel deseado
+            //System.out.print (n.getDato()+" ");
+            valores = n.getDato()+",";
         }
+        if(n.getLeft() !=null){
+            //Si hay algo en la izquierda entonces se recorre
+            valores = valores +recorrerParaMostrarPorNivel(nivelActual+1, n.getLeft(), nivelDeseado);
+        //Aumenta el nivel en uno porque se bajara en el arbol
+        }
+        if(n.getRight()!=null){
+             //Si hay algo en la derecha entonces se recorre
+            valores = valores+recorrerParaMostrarPorNivel(nivelActual+1, n.getRight(), nivelDeseado);
+        }
+        return valores;
     }
-    private void recorrerDerecha(int nivelActual, nodo n,int nivelDeseado)
-    {
-        if(n!=null)
-        {
-        n = n.getRight();
-        if(nivelActual == (nivelDeseado-1))
-        {
-            if(n.getLeft()!=null){
-            System.out.println(""+n.getLeft());
-            }
-        }
-            if(n.getRight()!=null){
-            System.out.println(""+n.getRight());
-            }
-        }
-        if(nivelActual<(nivelDeseado-1))
-        {
-            
-            recorrer(nivelActual+1, n, nivelDeseado);
-        }
-    }
-     private void recorrerIzquierda(int nivelActual, nodo n,int nivelDeseado)
-    {
-        if(n!=null)
-        {
-        n = n.getLeft();
-        if(nivelActual == (nivelDeseado-1))
-        {
-            if(n.getLeft()!=null){
-            System.out.println(""+n.getLeft());
-            }
-        }
-            if(n.getRight()!=null){
-            System.out.println(""+n.getRight());
-            }
-        }
-        if(nivelActual<nivelDeseado)
-        {
-            
-            recorrer(nivelActual+1, n, nivelDeseado);
-        }
-    }
-        
+    
+    
+    
+    
+    
         
     private String postorden(nodo n) {
         String valores="";
