@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class PFAlgoritmos {
 
     public static void main(String[] args) {
-        numeros num = new numeros();
+        Numeros num = new Numeros();
         ArrayList valores = new ArrayList<>();
         valores = num.generaNumeros(10, 5);
         System.out.println("valores: "+valores);
