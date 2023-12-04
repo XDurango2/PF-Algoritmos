@@ -11,11 +11,11 @@ import java.util.Random;
  *
  * @author us
  */
-public class numeros {
-    private arbol arbol1;
+public class Numeros {
+    private Arbol arbol1;
 
-    public numeros() {
-        this.arbol1 = new arbol();
+    public Numeros() {
+        this.arbol1 = new Arbol();
     }
     
     public ArrayList generaNumeros(int k, int n){
@@ -57,7 +57,12 @@ public class numeros {
     public void obtenerCodigo(int numero){
         System.out.println(arbol1.obtenerCodigo(numero));
     }
+/*
     public void mostrarNivel(int nivel){
         arbol1.mostrarPorNivel(nivel);
+
+    public String mostrarNivel(int nivel){
+         return arbol1.mostrarPorNivel(nivel);
+*/
     }
 }

@@ -4,16 +4,23 @@
  */
 package com.uabc.labs.pf.algoritmos;
 
+import java.util.Stack;
+
 /**
  *clase que modela un arbol binario completo.
  * @author us
  */
+
 public class arbol {
     private nodo raiz;
     private int altura;
     private String[] niveles;
+
+public class Arbol {
+    private Nodo raiz;
+
     //constructor
-    public arbol() {
+    public Arbol() {
         
     }
     
@@ -29,7 +36,7 @@ public class arbol {
         if(exists(dato)==false)//no puede haber  datos repetidos
         {
             if(raiz==null){
-            raiz=new nodo(dato);
+            raiz=new Nodo(dato);
             }else{
             insertar(raiz,dato);
             }
@@ -62,16 +69,16 @@ public class arbol {
      * @param padre
      * @param dato 
      */
-    private void insertar(nodo padre,int dato){
+    private void insertar(Nodo padre,int dato){
         if(dato>(int)padre.getDato()){
             if(padre.getRight()==null){
-                padre.setRight(new nodo(dato));
+                padre.setRight(new Nodo(dato));
             }else{
                 this.insertar(padre.getRight(), dato);
             }
         }else{
             if(padre.getLeft()==null){
-                padre.setLeft(new nodo(dato));
+                padre.setLeft(new Nodo(dato));
             }else{
                 this.insertar(padre.getLeft(), dato);
             }
@@ -94,7 +101,7 @@ public class arbol {
      * @param find
      * @return 
      */
-    private boolean exists(nodo n,int find){
+    private boolean exists(Nodo n,int find){
         if(n==null){
             return false;
         }
@@ -107,7 +114,7 @@ public class arbol {
         }
     }
     
-    private String RecorrerPreorden(nodo n) {
+    private String RecorrerPreorden(Nodo n) {
         String valores="";
         if (n != null) {
             valores+=n.getDato()+" ";
@@ -117,7 +124,7 @@ public class arbol {
         return valores;
     }
 
-    private String RecorrerInorden(nodo n) {
+    private String RecorrerInorden(Nodo n) {
         String valores="";
         if (n != null) {
             valores+=RecorrerInorden(n.getLeft());
@@ -131,7 +138,6 @@ public class arbol {
 
     
     public String recorridoPorNivel()
-
     {
          StringBuilder valores = new StringBuilder(recorrido(raiz,1));
          if(valores.length()>1){
@@ -143,7 +149,8 @@ public class arbol {
        
         
     }
-    private String recorrido(nodo n,int nivel)
+
+    private String recorrido(Nodo n,int nivel)
     {
         //Se recorre por nivel
         String valoresPorNivel = recorrerParaMostrarPorNivel(1, n, nivel);
@@ -174,7 +181,8 @@ public class arbol {
         
     
     }
-    private String recorrerParaMostrarPorNivel(int nivelActual, nodo n,int nivelDeseado)
+
+    private String recorrerParaMostrarPorNivel(int nivelActual, Nodo n,int nivelDeseado)
     {
         String valores = "";
         if(nivelActual == nivelDeseado){
@@ -199,7 +207,7 @@ public class arbol {
     
     
         
-    private String postorden(nodo n) {
+    private String postorden(Nodo n) {
         String valores="";
         if (n != null) {
             valores+=postorden(n.getLeft());
@@ -228,7 +236,7 @@ public class arbol {
 }
 
     // Método privado que elimina un dato en el árbol de forma recursiva
-    private nodo eliminar(nodo nodo, int dato) {
+    private Nodo eliminar(Nodo nodo, int dato) {
     // Si el nodo es nulo, se retorna nulo
     if (nodo == null) {
         return null;
@@ -252,7 +260,7 @@ public class arbol {
             nodo = nodo.getRight();
         } else {
             // Si el nodo tiene dos hijos, se busca el sucesor del nodo en el subárbol derecho
-            nodo sucesor = buscarSucesor(nodo.getRight());
+            Nodo sucesor = buscarSucesor(nodo.getRight());
             // Se copia el dato del sucesor al nodo
             nodo.setDato(sucesor.getDato());
             // Se elimina el sucesor en el subárbol derecho
@@ -264,7 +272,7 @@ public class arbol {
 }
 
     // Método para buscar el sucesor de un nodo en el árbol
-    private nodo buscarSucesor(nodo nodo) {
+    private Nodo buscarSucesor(Nodo nodo) {
         // El sucesor es el nodo más a la izquierda del subárbol derecho
         while (nodo.getLeft()!= null) {
             nodo = nodo.getLeft();
@@ -274,11 +282,25 @@ public class arbol {
     }
 
 
+
     public String obtenerCodigo(int numero){
-        nodo n = raiz;
-        return findCodigo(n,numero);
+        Nodo n = raiz;
+        String cadena = findCodigo(n,numero);
+        Stack ayuda = new Stack();//invertir usando stack
+        char[] cadenaArray = cadena.toCharArray();
+        String nuevaCadena ="";
+        for(char c :cadenaArray)
+        {
+        ayuda.push(c);
+        }
         
+         for(char c :cadenaArray)
+        {
+        nuevaCadena+=ayuda.pop();
+        }
+        return nuevaCadena;
     }
+
     public void imprimirNivel()
     {
         obtenerAltura();
@@ -306,7 +328,9 @@ public class arbol {
         }
     
     }
-    private String findCodigo(nodo n,int find){
+
+    private String findCodigo(Nodo n,int find){
+
         String valor="";
         if(n==null){
             return "no encontrado";
@@ -314,11 +338,11 @@ public class arbol {
         if((int)n.getDato()==find){
             return valor;
         }else if(find<(int)n.getDato()){
-            valor+="0,";
+            valor+="0";
             valor+=findCodigo(n.getLeft(),find);
             return valor;
         }else{
-            valor+="1,";
+            valor+="1";
             valor+=findCodigo(n.getRight(),find);
             return valor;
         }

@@ -8,32 +8,32 @@ package com.uabc.labs.pf.algoritmos;
  *clase para modelar un nodo de un arbol binario
  * @author us
  */
-public class nodo <T> {
-    private nodo left;
-    private nodo right;
+public class Nodo <T> {
+    private Nodo left;
+    private Nodo right;
     private T dato;
     
     //constructor
-    public nodo(T dato) {
+    public Nodo(T dato) {
         this.left = null;
         this.right = null;
         this.dato = dato;
     }
 
     //getters y setters
-    public nodo getLeft() {
+    public Nodo getLeft() {
         return left;
     }
 
-    public void setLeft(nodo left) {
+    public void setLeft(Nodo left) {
         this.left = left;
     }
 
-    public nodo getRight() {
+    public Nodo getRight() {
         return right;
     }
 
-    public void setRight(nodo right) {
+    public void setRight(Nodo right) {
         this.right = right;
     }
 
