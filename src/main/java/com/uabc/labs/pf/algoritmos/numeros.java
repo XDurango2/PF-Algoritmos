@@ -17,6 +17,10 @@ public class Numeros {
     public Numeros() {
         this.arbol1 = new Arbol();
     }
+
+    public Arbol getArbol1() {
+        return arbol1;
+    }
     
     public ArrayList generaNumeros(int k, int n){
         ArrayList<Integer> array = new ArrayList<>();
@@ -65,4 +69,4 @@ public class Numeros {
          return arbol1.mostrarPorNivel(nivel);
 */
     }
-}
+

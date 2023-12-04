@@ -17,19 +17,19 @@ public class PFAlgoritmos {
 
         Numeros num = new Numeros();
         Scanner sc = new Scanner(System.in);
-        //ArrayList valores = num.generaNumeros(10, 10);
-        ArrayList valores = new ArrayList();
-        valores.add(50);
-        valores.add(17);
-        valores.add(72);
-        valores.add(12);
-        valores.add(23);
-        valores.add(54);
-        valores.add(76);
-        valores.add(9);
-        valores.add(14);
-        valores.add(19);
-        valores.add(67);
+        ArrayList valores = num.generaNumeros(10, 10);
+//        ArrayList valores = new ArrayList();
+//        valores.add(50);
+//        valores.add(17);
+//        valores.add(72);
+//        valores.add(12);
+//        valores.add(23);
+//        valores.add(54);
+//        valores.add(76);
+//        valores.add(9);
+//        valores.add(14);
+//        valores.add(19);
+//        valores.add(67);
         System.out.println("valores: "+valores);
         
         num.insertaNumeros(valores);
@@ -44,7 +44,7 @@ public class PFAlgoritmos {
 
       
       
-        arbol a = new arbol();
+        Arbol a = new Arbol();
         a.insertar(9);
         a.insertar(1);
         a.insertar(12);
@@ -54,6 +54,8 @@ public class PFAlgoritmos {
         a.insertar(6);
         a.insertar(10);
         a.insertar(-1);
+        a.insertar(3);
+        a.insertar(2);
         System.out.println(""+a.inorden());
         System.out.println("Nivel 1 "+a.mostrarPorNivel(1));
         System.out.println("Nivel 2 "+a.mostrarPorNivel(2));

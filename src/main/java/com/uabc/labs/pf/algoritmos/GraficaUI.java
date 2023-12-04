@@ -4,14 +4,17 @@
  */
 package com.uabc.labs.pf.algoritmos;
 
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
 
 /**
  *
- * @author karoe
+ * @author ACR
  */
 public class GraficaUI extends javax.swing.JFrame {
-
+Numeros numeros;
+JTextField[] nodos;
     /**
      * Creates new form GraficaUI
      */
@@ -25,7 +28,11 @@ public class GraficaUI extends javax.swing.JFrame {
         scalaImagen(lineaI14);
         scalaImagen(fondo);
         scalaImagen(fondoPrincipal);
-        
+        numeros = new Numeros();
+        nodos = new JTextField[]{nodo1_1,nodo2_1,nodo2_2,nodo3_1,nodo3_2,nodo3_3,nodo3_4,
+            nodo4_1,nodo4_2,nodo4_3,nodo4_4,nodo4_5,nodo4_6,nodo4_7,nodo4_8,nodo5_1,nodo5_2,
+            nodo5_3,nodo5_4,nodo5_5,nodo5_6,nodo5_7,nodo5_8,nodo5_9,nodo5_10,nodo5_11,nodo5_12
+            ,nodo5_13,nodo5_14,nodo5_15,nodo5_16};
     }
 
     
@@ -42,6 +49,12 @@ public class GraficaUI extends javax.swing.JFrame {
              label.getHeight(), java.awt.Image.SCALE_SMOOTH);
         label.setIcon(new javax.swing.ImageIcon(image));
     }
+    
+    public void asignarPosiciones()
+    {
+      //ayuda!  
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,6 +152,7 @@ public class GraficaUI extends javax.swing.JFrame {
         mostrarValNivB = new javax.swing.JButton();
         nivelCB = new javax.swing.JComboBox<>();
         codigoB = new javax.swing.JButton();
+        codigo = new javax.swing.JTextField();
         fondoPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -161,53 +175,23 @@ public class GraficaUI extends javax.swing.JFrame {
         nodo5_2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nodo5_2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 0)));
-        nodo5_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_2ActionPerformed(evt);
-            }
-        });
 
         nodo5_3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 51)));
-        nodo5_3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_3ActionPerformed(evt);
-            }
-        });
 
         nodo5_4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nodo5_4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 0)));
-        nodo5_4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_4ActionPerformed(evt);
-            }
-        });
 
         nodo5_5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 51)));
-        nodo5_5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_5ActionPerformed(evt);
-            }
-        });
 
         nodo5_6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nodo5_6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_6.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 0)));
-        nodo5_6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_6ActionPerformed(evt);
-            }
-        });
 
         nodo5_7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 51)));
-        nodo5_7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_7ActionPerformed(evt);
-            }
-        });
 
         nodo5_8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nodo5_8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -215,62 +199,27 @@ public class GraficaUI extends javax.swing.JFrame {
 
         nodo5_9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_9.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 51)));
-        nodo5_9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_9ActionPerformed(evt);
-            }
-        });
 
         nodo5_10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nodo5_10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 0)));
-        nodo5_10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_10ActionPerformed(evt);
-            }
-        });
 
         nodo5_11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_11.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 51)));
-        nodo5_11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_11ActionPerformed(evt);
-            }
-        });
 
         nodo5_12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nodo5_12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_12.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 0)));
-        nodo5_12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_12ActionPerformed(evt);
-            }
-        });
 
         nodo5_13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_13.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 51)));
-        nodo5_13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_13ActionPerformed(evt);
-            }
-        });
 
         nodo5_14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nodo5_14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_14.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 0)));
-        nodo5_14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_14ActionPerformed(evt);
-            }
-        });
 
         nodo5_15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nodo5_15.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 255, 51)));
-        nodo5_15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nodo5_15ActionPerformed(evt);
-            }
-        });
 
         nodo5_16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nodo5_16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -613,11 +562,6 @@ public class GraficaUI extends javax.swing.JFrame {
         getContentPane().add(generaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 14, -1, -1));
 
         numValoresCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        numValoresCB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numValoresCBActionPerformed(evt);
-            }
-        });
         getContentPane().add(numValoresCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 47, -1, -1));
 
         numValoresTexto.setText("Num. Valores");
@@ -640,22 +584,42 @@ public class GraficaUI extends javax.swing.JFrame {
         getContentPane().add(eliminaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 150, -1, -1));
         getContentPane().add(elimina, new org.netbeans.lib.awtextra.AbsoluteConstraints(665, 150, 60, -1));
 
-        ordenes.setText("or");
+        ordenes.setText("Secuencia A Mostrar: ");
         getContentPane().add(ordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 695, 36));
 
         mostrarOrdenadoTexto.setText("Seccion De Mostra Ordenado!");
         getContentPane().add(mostrarOrdenadoTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 195, -1, -1));
 
         preordenB.setText("Mostrar Preorden");
+        preordenB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                preordenBActionPerformed(evt);
+            }
+        });
         getContentPane().add(preordenB, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, -1, -1));
 
         inordenB.setText("Mostrar Inorden");
+        inordenB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inordenBActionPerformed(evt);
+            }
+        });
         getContentPane().add(inordenB, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 130, -1));
 
         postordenB.setText("Mostrar Postorden");
+        postordenB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                postordenBActionPerformed(evt);
+            }
+        });
         getContentPane().add(postordenB, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 150, -1));
 
         RecPorNivB.setText("Mostrar RecorridoPorNivel");
+        RecPorNivB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RecPorNivBActionPerformed(evt);
+            }
+        });
         getContentPane().add(RecPorNivB, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, -1, -1));
 
         mostrarValNivB.setText("Mostrar Valores En Nivel:");
@@ -670,7 +634,13 @@ public class GraficaUI extends javax.swing.JFrame {
         getContentPane().add(nivelCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
 
         codigoB.setText("Mostrar Codigo");
-        getContentPane().add(codigoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 130, -1));
+        codigoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(codigoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 130, -1));
+        getContentPane().add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 50, -1));
 
         fondoPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoAzul.jpg"))); // NOI18N
         fondoPrincipal.setText("jLabel2");
@@ -679,73 +649,64 @@ public class GraficaUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nodo5_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_2ActionPerformed
-
-    private void nodo5_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_4ActionPerformed
-
-    private void nodo5_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_3ActionPerformed
-
-    private void nodo5_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_6ActionPerformed
-
-    private void nodo5_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_5ActionPerformed
-
-    private void nodo5_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_7ActionPerformed
-
-    private void nodo5_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_10ActionPerformed
-
-    private void nodo5_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_9ActionPerformed
-
-    private void nodo5_12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_12ActionPerformed
-
-    private void nodo5_11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_11ActionPerformed
-
-    private void nodo5_14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_14ActionPerformed
-
-    private void nodo5_13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_13ActionPerformed
-
-    private void nodo5_15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodo5_15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nodo5_15ActionPerformed
-
     private void generaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generaBActionPerformed
-        // TODO add your handling code here:
+       ArrayList<Integer> nums = numeros.generaNumeros(10, 20);
+       numeros.insertaNumeros(nums);
     }//GEN-LAST:event_generaBActionPerformed
-
-    private void numValoresCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numValoresCBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numValoresCBActionPerformed
 
     private void InsertaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertaBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InsertaBActionPerformed
 
     private void mostrarValNivBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarValNivBActionPerformed
-        // TODO add your handling code here:
+      if(numeros.getArbol1().getRaiz()!=null)
+      {
+        int val = Integer.parseInt(nivelCB.getSelectedItem().toString());
+        String cadena = numeros.getArbol1().mostrarPorNivel(val);
+       ordenes.setText("Secuencia A Mostrar: "+cadena);
+      }
     }//GEN-LAST:event_mostrarValNivBActionPerformed
+
+    private void preordenBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preordenBActionPerformed
+       if(numeros.getArbol1().getRaiz()!=null)
+      {
+        String cadena = numeros.getArbol1().preorden();
+       ordenes.setText("Secuencia A Mostrar: "+cadena);
+      }
+    }//GEN-LAST:event_preordenBActionPerformed
+
+    private void inordenBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inordenBActionPerformed
+       if(numeros.getArbol1().getRaiz()!=null)
+      {
+        String cadena = numeros.getArbol1().inorden();
+       ordenes.setText("Secuencia A Mostrar: "+cadena);
+      }
+    }//GEN-LAST:event_inordenBActionPerformed
+
+    private void postordenBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postordenBActionPerformed
+       if(numeros.getArbol1().getRaiz()!=null)
+      {
+       String cadena = numeros.getArbol1().postorden();
+       ordenes.setText("Secuencia A Mostrar: "+cadena);
+      }
+    }//GEN-LAST:event_postordenBActionPerformed
+
+    private void codigoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoBActionPerformed
+      if(numeros.getArbol1().getRaiz()!=null && !codigo.getText().isEmpty())
+      {
+       String cadena;
+       cadena = numeros.getArbol1().obtenerCodigo(Integer.parseInt(codigo.getText()));
+       ordenes.setText("Secuencia A Mostrar: "+cadena);
+      }
+    }//GEN-LAST:event_codigoBActionPerformed
+
+    private void RecPorNivBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecPorNivBActionPerformed
+       if(numeros.getArbol1().getRaiz()!=null)
+      {
+        String cadena = numeros.getArbol1().recorridoPorNivel();
+       ordenes.setText("Secuencia A Mostrar: "+cadena);
+      }
+    }//GEN-LAST:event_RecPorNivBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -785,6 +746,7 @@ public class GraficaUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton InsertaB;
     private javax.swing.JButton RecPorNivB;
+    private javax.swing.JTextField codigo;
     private javax.swing.JButton codigoB;
     private javax.swing.JPanel contenedorArbol;
     private javax.swing.JLabel descripcion;
