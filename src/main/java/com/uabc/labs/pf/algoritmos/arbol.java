@@ -4,6 +4,8 @@
  */
 package com.uabc.labs.pf.algoritmos;
 
+import java.util.Stack;
+
 /**
  *clase que modela un arbol binario completo.
  * @author us
@@ -255,7 +257,20 @@ public class Arbol {
 
     public String obtenerCodigo(int numero){
         Nodo n = raiz;
-        return findCodigo(n,numero);
+        String cadena = findCodigo(n,numero);
+        Stack ayuda = new Stack();//invertir usando stack
+        char[] cadenaArray = cadena.toCharArray();
+        String nuevaCadena ="";
+        for(char c :cadenaArray)
+        {
+        ayuda.push(c);
+        }
+        
+         for(char c :cadenaArray)
+        {
+        nuevaCadena+=ayuda.pop();
+        }
+        return nuevaCadena;
     }
   
     private String findCodigo(Nodo n,int find){
@@ -266,11 +281,11 @@ public class Arbol {
         if((int)n.getDato()==find){
             return valor;
         }else if(find<(int)n.getDato()){
-            valor+="0,";
+            valor+="0";
             valor+=findCodigo(n.getLeft(),find);
             return valor;
         }else{
-            valor+="1,";
+            valor+="1";
             valor+=findCodigo(n.getRight(),find);
             return valor;
         }
