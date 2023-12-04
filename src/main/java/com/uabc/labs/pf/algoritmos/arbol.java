@@ -10,6 +10,8 @@ package com.uabc.labs.pf.algoritmos;
  */
 public class arbol {
     private nodo raiz;
+    private int altura;
+    private String[] niveles;
     //constructor
     public arbol() {
         
@@ -33,6 +35,27 @@ public class arbol {
             }
         }
     }    
+    public int obtenerAltura()
+    {
+        altura = 0;
+        obtenerAltura(raiz,0);
+        return altura;
+        
+    }
+    private void obtenerAltura(nodo n, int nivel)
+    {
+        if(n!=null){
+        obtenerAltura(n.getLeft(), nivel+1);
+        if(nivel> altura)
+        {
+        altura = nivel;
+        
+        }
+        obtenerAltura(n.getRight(),nivel+1);
+        }
+        
+        
+    }
     /**
      * metodo para insertar un dato como hijo de un nodo padre,
      * busca un lugar para el dato, usando recursividad.
@@ -255,6 +278,33 @@ public class arbol {
         nodo n = raiz;
         return findCodigo(n,numero);
         
+    }
+    public void imprimirNivel()
+    {
+        obtenerAltura();
+        niveles = new String[altura+1];
+        imprimirNivel(raiz, 0);
+        for (int i = 0; i < niveles.length; i++) {
+            System.out.println(""+ niveles[i]);
+            
+        }
+    
+    }
+     private void imprimirNivel(nodo n, int nivel)
+    {
+        if(n!=null)
+        {
+            if(niveles[nivel] !=null){
+            niveles[nivel] = niveles[nivel]+n.getDato()+" " ;}
+            else
+            {
+                niveles[nivel] = n.getDato()+" " ;
+            }
+            imprimirNivel(n.getLeft(), nivel+1);
+            imprimirNivel(n.getRight(), nivel+1);
+            
+        }
+    
     }
     private String findCodigo(nodo n,int find){
         String valor="";
