@@ -120,7 +120,7 @@ public class Arbol {
         
     }
 
-    private String recorrido(nodo n,int nivel)
+    private String recorrido(Nodo n,int nivel)
     {
         //Se recorre por nivel
         String valoresPorNivel = recorrerParaMostrarPorNivel(1, n, nivel);
@@ -152,7 +152,7 @@ public class Arbol {
     
     }
 
-    private String recorrerParaMostrarPorNivel(int nivelActual, nodo n,int nivelDeseado)
+    private String recorrerParaMostrarPorNivel(int nivelActual, Nodo n,int nivelDeseado)
     {
         String valores = "";
         if(nivelActual == nivelDeseado){
@@ -254,11 +254,11 @@ public class Arbol {
 
 
     public String obtenerCodigo(int numero){
-        nodo n = raiz;
+        Nodo n = raiz;
         return findCodigo(n,numero);
     }
   
-    private String findCodigo(nodo n,int find){
+    private String findCodigo(Nodo n,int find){
         String valor="";
         if(n==null){
             return "no encontrado";

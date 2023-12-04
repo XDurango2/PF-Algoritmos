@@ -15,7 +15,7 @@ public class PFAlgoritmos {
 
     public static void main(String[] args) {
 
-        numeros num = new numeros();
+        Numeros num = new Numeros();
         Scanner sc = new Scanner(System.in);
         ArrayList valores = num.generaNumeros(10, 10);
 
@@ -33,7 +33,7 @@ public class PFAlgoritmos {
       
       
       
-        arbol a = new arbol();
+        Arbol a = new Arbol();
         a.insertar(9);
         a.insertar(1);
         a.insertar(12);
