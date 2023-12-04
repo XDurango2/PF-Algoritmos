@@ -10,8 +10,15 @@ import java.util.Stack;
  *clase que modela un arbol binario completo.
  * @author us
  */
+
+public class arbol {
+    private nodo raiz;
+    private int altura;
+    private String[] niveles;
+
 public class Arbol {
     private Nodo raiz;
+
     //constructor
     public Arbol() {
         
@@ -35,6 +42,27 @@ public class Arbol {
             }
         }
     }    
+    public int obtenerAltura()
+    {
+        altura = 0;
+        obtenerAltura(raiz,0);
+        return altura;
+        
+    }
+    private void obtenerAltura(nodo n, int nivel)
+    {
+        if(n!=null){
+        obtenerAltura(n.getLeft(), nivel+1);
+        if(nivel> altura)
+        {
+        altura = nivel;
+        
+        }
+        obtenerAltura(n.getRight(),nivel+1);
+        }
+        
+        
+    }
     /**
      * metodo para insertar un dato como hijo de un nodo padre,
      * busca un lugar para el dato, usando recursividad.
@@ -272,8 +300,37 @@ public class Arbol {
         }
         return nuevaCadena;
     }
-  
+
+    public void imprimirNivel()
+    {
+        obtenerAltura();
+        niveles = new String[altura+1];
+        imprimirNivel(raiz, 0);
+        for (int i = 0; i < niveles.length; i++) {
+            System.out.println(""+ niveles[i]);
+            
+        }
+    
+    }
+     private void imprimirNivel(nodo n, int nivel)
+    {
+        if(n!=null)
+        {
+            if(niveles[nivel] !=null){
+            niveles[nivel] = niveles[nivel]+n.getDato()+" " ;}
+            else
+            {
+                niveles[nivel] = n.getDato()+" " ;
+            }
+            imprimirNivel(n.getLeft(), nivel+1);
+            imprimirNivel(n.getRight(), nivel+1);
+            
+        }
+    
+    }
+
     private String findCodigo(Nodo n,int find){
+
         String valor="";
         if(n==null){
             return "no encontrado";

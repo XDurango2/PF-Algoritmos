@@ -41,13 +41,35 @@ public class PFAlgoritmos {
         num.mostrarPostorden();
 
         //-------------------Pruebas nivel-----------------
+
       
+      
+        arbol a = new arbol();
+        a.insertar(9);
+        a.insertar(1);
+        a.insertar(12);
+        a.insertar(4);
+        a.insertar(0);
+        a.insertar(14);
+        a.insertar(6);
+        a.insertar(10);
+        a.insertar(-1);
+        System.out.println(""+a.inorden());
+        System.out.println("Nivel 1 "+a.mostrarPorNivel(1));
+        System.out.println("Nivel 2 "+a.mostrarPorNivel(2));
+        System.out.println("Nivel 3 "+a.mostrarPorNivel(3));
+        //System.out.println("Recorrido por nivel "+a.recorridoPorNivel());
+
+        a.imprimirNivel();
+        /*
+
         System.out.println("");
         
         System.out.println("Nivel 1 "+num.mostrarNivel(1));
         System.out.println("Nivel 2 "+num.mostrarNivel(2));
         System.out.println("Nivel 3 "+num.mostrarNivel(3));
         System.out.println("Nivel 4 "+num.mostrarNivel(4));
+
         System.out.println("ingrese el numero a buscar para obtener su codigo:");
         int numero=sc.nextInt();
         System.out.println("codigo: ");
@@ -56,5 +78,9 @@ public class PFAlgoritmos {
         int nivel = sc.nextInt();
         System.out.println("nivel "+nivel+": "+num.mostrarNivel(nivel));
 
+        boolean h = true;
+        String hh = "NOp";
+        System.out.println("com.uabc.labs.pf.algoritmos.PFAlgoritmos.main()"+(h ? hh: "Hola") );
+        */
     }
 }
