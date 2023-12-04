@@ -11,22 +11,25 @@ import java.util.Stack;
  * @author us
  */
 
-public class arbol {
-    private nodo raiz;
+public class Arbol {
+    private Nodo raiz;
     private int altura;
     private String[] niveles;
 
-public class Arbol {
-    private Nodo raiz;
+
 
     //constructor
     public Arbol() {
         
     }
+
+    public Nodo getRaiz() {
+        return raiz;
+    }
     
     /**
-     * metodo para insertar un dato al arbol
-     * @param dato 
+     * metodo para insertar un dato al arbol 
+         * @return 
      */
     public int regresarRaiz()
     {
@@ -49,7 +52,7 @@ public class Arbol {
         return altura;
         
     }
-    private void obtenerAltura(nodo n, int nivel)
+    private void obtenerAltura(Nodo n, int nivel)
     {
         if(n!=null){
         obtenerAltura(n.getLeft(), nivel+1);
@@ -188,7 +191,7 @@ public class Arbol {
         if(nivelActual == nivelDeseado){
             //Imprime si el nivel en el que se encuentra el nodo esta en el nivel deseado
             //System.out.print (n.getDato()+" ");
-            valores = n.getDato()+",";
+            valores = n.getDato()+" ";
         }
         if(n.getLeft() !=null){
             //Si hay algo en la izquierda entonces se recorre
@@ -269,7 +272,7 @@ public class Arbol {
     }
     // Se retorna el nodo modificado
     return nodo;
-}
+    }
 
     // Método para buscar el sucesor de un nodo en el árbol
     private Nodo buscarSucesor(Nodo nodo) {
@@ -312,7 +315,7 @@ public class Arbol {
         }
     
     }
-     private void imprimirNivel(nodo n, int nivel)
+     private void imprimirNivel(Nodo n, int nivel)
     {
         if(n!=null)
         {
@@ -348,6 +351,5 @@ public class Arbol {
         }
     }
     
-
-    
 }
+
