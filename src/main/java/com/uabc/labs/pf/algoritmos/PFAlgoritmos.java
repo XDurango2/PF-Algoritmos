@@ -14,9 +14,11 @@ import java.util.Scanner;
 public class PFAlgoritmos {
 
     public static void main(String[] args) {
+
         numeros num = new numeros();
         Scanner sc = new Scanner(System.in);
         ArrayList valores = num.generaNumeros(10, 10);
+
         System.out.println("valores: "+valores);
         
         num.insertaNumeros(valores);

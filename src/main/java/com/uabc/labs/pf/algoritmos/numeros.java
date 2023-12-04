@@ -11,11 +11,11 @@ import java.util.Random;
  *
  * @author us
  */
-public class numeros {
-    private arbol arbol1;
+public class Numeros {
+    private Arbol arbol1;
 
-    public numeros() {
-        this.arbol1 = new arbol();
+    public Numeros() {
+        this.arbol1 = new Arbol();
     }
     
     public ArrayList generaNumeros(int k, int n){
